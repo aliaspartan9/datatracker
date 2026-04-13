@@ -10,7 +10,7 @@ The app contains four models:
 
 | Model | Purpose |
 |-------|---------|
-| `MeetingRegistration` | Legacy registration data imported from the Secretariat's system |
+| `MeetingRegistration` | **Unused — will be removed.** Replaced by `meeting.Registration` |
 | `AffiliationAlias` | Canonical form for organisation name variants |
 | `AffiliationIgnoredEnding` | Regex patterns for corporate suffixes to strip (LLC, Inc., …) |
 | `CountryAlias` | Maps country name variants to `CountryName` |
@@ -46,9 +46,9 @@ erDiagram
     }
 ```
 
-`MeetingRegistration` provides affiliation, country code, and name variations for a person
-as recorded at meeting registration time — details that are not on the `Person` record
-itself. The `AffiliationAlias` and `AffiliationIgnoredEnding` tables are attempts to
+`MeetingRegistration` is unused and will be removed; use `meeting.Registration` instead
+(see [meeting.md](meeting.md)). It previously provided affiliation, country code, and name
+variations for a person as recorded at meeting registration time. The `AffiliationAlias` and `AffiliationIgnoredEnding` tables are attempts to
 normalise affiliation strings; they are sparsely populated:
 
 ```python
@@ -61,9 +61,8 @@ AffiliationIgnoredEnding.objects.all()
 # [<AffiliationIgnoredEnding: LLC\.?>, <AffiliationIgnoredEnding: Ltd\.?>, ...]
 ```
 
-> **Note:** `stats.MeetingRegistration` is a legacy table for data imported before the
-> `meeting.Registration` model existed. New registrations are stored in
-> `meeting.Registration` (see [meeting.md](meeting.md)).
+> **Note:** `stats.MeetingRegistration` is unused and will be removed. It has been
+> replaced by `meeting.Registration` (see [meeting.md](meeting.md)).
 
 ---
 

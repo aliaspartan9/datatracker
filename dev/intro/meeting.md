@@ -219,8 +219,8 @@ can have one or more `RegistrationTicket` records indicating ticket type
 `hackathon_onsite`, `hackathon_remote`). The `attended` and `checkedin` flags are
 updated during the meeting.
 
-> **Historical note:** An older `stats.MeetingRegistration` table predates this model
-> and still exists for legacy data. New registrations use `meeting.Registration`.
+> **Note:** `stats.MeetingRegistration` is unused and will be removed. It has been
+> replaced by this model.
 
 ## Proceedings materials
 

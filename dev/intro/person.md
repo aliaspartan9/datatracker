@@ -81,9 +81,9 @@ non-empty, falling back to `pronouns_freetext` otherwise. Display code should ca
 
 Affiliation and country are **not stored on Person**. They are captured at document
 submission time and stored on `DocumentAuthor`, so the same person can have different
-affiliations across different documents. The `stats.MeetingRegistration` and
-`meeting.Registration` models also capture affiliation as declared at meeting
-registration time.
+affiliations across different documents. `meeting.Registration` also captures affiliation as declared at meeting registration
+time (`stats.MeetingRegistration` served the same purpose but is unused and will be
+removed).
 
 ## Model diagram
 
