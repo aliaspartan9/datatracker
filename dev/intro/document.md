@@ -160,7 +160,10 @@ erDiagram
 affiliation and country at the time of each revision. For RFCs, a parallel `RfcAuthor`
 model stores names exactly as they appear on the RFC title page, which may differ from the
 person's current `Person.name` (or may not be resolvable to any `Person` at all, for
-legacy RFCs).
+legacy RFCs). When an RFC has no `RfcAuthor` rows, the `DocumentAuthor` rows inherited from the
+originating draft are used instead. Code that retrieves RFC authors should check `rfcauthor_set` first and fall
+back to `documentauthor_set` when it is empty (see `DocumentInfo.author_persons()` for
+the canonical implementation of this pattern).
 
 ## Document history
 
